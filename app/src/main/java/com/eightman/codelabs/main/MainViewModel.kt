@@ -1,11 +1,12 @@
 package com.eightman.codelabs.main
 
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.eightman.codelabs.CodelabsApplication
 import com.eightman.codelabs.util.BACKGROUND
 
-class MainViewModel : ViewModel() {
+class MainViewModel : AndroidViewModel(CodelabsApplication.instance) {
 
     /**
      * Request a snackbar to display a string.

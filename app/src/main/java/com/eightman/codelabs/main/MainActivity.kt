@@ -2,11 +2,10 @@ package com.eightman.codelabs.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.eightman.codelabs.R
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,10 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val rootLayout: ConstraintLayout = findViewById(R.id.rootLayout)
-
-        val viewModel = ViewModelProviders.of(this)
-            .get(MainViewModel::class.java)
+        val viewModel = MainViewModel()
 
         // When rootLayout is clicked call onMainViewClicked in ViewModel
         rootLayout.setOnClickListener {
@@ -34,7 +30,6 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.make(rootLayout, text, Snackbar.LENGTH_SHORT).show()
                 viewModel.onSnackbarShown()
             }
-
         })
     }
 }
