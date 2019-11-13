@@ -3,6 +3,7 @@ package com.eightman.codelabs.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.eightman.codelabs.R
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val viewModel = MainViewModel()
+        val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         // When rootLayout is clicked call onMainViewClicked in ViewModel
         rootLayout.setOnClickListener {
